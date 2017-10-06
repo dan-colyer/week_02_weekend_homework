@@ -36,12 +36,19 @@ class TestRoom < MiniTest::Test
     assert_equal(2, result)
   end
 
-#Test 3
+# Test 3
   def test_add_guest()
     guest_3 = Guest.new("Harold Bishop")
     @room.add_guest(guest_3)
     result = @room.number_of_guests()
     assert_equal(3, result)
+  end
+
+# Test 4
+  def test_remove_guest()
+    @room.remove_guest(@guest_2)
+    result = @room.number_of_guests()
+    assert_equal(1, result)
   end
 
 end

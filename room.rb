@@ -16,5 +16,9 @@ attr_reader :name
     return @guests << guests
   end
 
+  def remove_guest(guests)
+    return @guests.delete(guests)
+  end
+
 
 end
