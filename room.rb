@@ -20,7 +20,7 @@ attr_reader :name
   # end
 
   def add_guest(guests)
-    if(!isFull())
+    if(!isFull() && canAfford(guests))
       @guests << guests
     end
   end

@@ -100,6 +100,14 @@ class TestRoom < MiniTest::Test
     result = @room.canAfford(@guest_1)
     assert_equal(true, result)
   end
+
+# Test 11
+  def test_add_guest__cant_afford
+    guest_5 = Guest.new("Old Davey", 16)
+    @room.add_guest(guest_5)
+    result = @room.number_of_guests()
+    assert_equal(2, result)
+  end
 end
 
 # Extensions
