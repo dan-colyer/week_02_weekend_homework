@@ -31,7 +31,7 @@ class TestRoom < MiniTest::Test
   end
 
 # Test 2
-  def test_check_how_many_guest()
+  def test_check_how_many_guests()
     result = @room.number_of_guests()
     assert_equal(2, result)
   end
@@ -49,6 +49,12 @@ class TestRoom < MiniTest::Test
     @room.remove_guest(@guest_2)
     result = @room.number_of_guests()
     assert_equal(1, result)
+  end
+
+# Test 5
+  def test_check_how_many_songs()
+    result = @room.number_of_songs()
+    assert_equal(2, result)
   end
 
 end

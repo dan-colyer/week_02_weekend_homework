@@ -20,5 +20,8 @@ attr_reader :name
     return @guests.delete(guests)
   end
 
+  def number_of_songs()
+    return @songs.length
+  end
 
 end
