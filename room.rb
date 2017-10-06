@@ -12,8 +12,18 @@ attr_reader :name
     return @guests.length
   end
 
+  # def add_guest(guests)
+  #   return @guests << guests
+  # end
+
   def add_guest(guests)
-    return @guests << guests
+    if(!isFull())
+      @guests << guests
+    end
+  end
+
+  def isFull()
+    return @guests.length == 4
   end
 
   def remove_guest(guests)

@@ -4,12 +4,6 @@ require_relative("../guest.rb")
 require_relative("../song.rb")
 require_relative("../room.rb")
 
-# Your program should be test driven and should be able to:
-#
-#     Create rooms, songs and guests
-#     Check in guests to rooms/Check out guests from rooms
-#     Add songs to rooms
-
 
 class TestRoom < MiniTest::Test
 
@@ -71,4 +65,38 @@ class TestRoom < MiniTest::Test
     result = @room.number_of_songs
     assert_equal(1, result)
   end
+
+# Test 8
+  def test_room_full()
+    guest_3 = Guest.new("Harold Bishop")
+    guest_4 = Guest.new("Man Man")
+
+    @room.add_guest(guest_3)
+    @room.add_guest(guest_4)
+
+    assert_equal(true, @room.isFull())
+  end
+
+  #test 9
+    def test_room_does_not_go_over()
+      guest_3 = Guest.new("Harold Bishop")
+      guest_4 = Guest.new("Man Man")
+
+      @room.add_guest(guest_3)
+      @room.add_guest(guest_4)
+      @room.add_guest(guest_4)
+      @room.add_guest(guest_4)
+      @room.add_guest(guest_4)
+      @room.add_guest(guest_4)
+      @room.add_guest(guest_4)
+      @room.add_guest(guest_4)
+      
+      result = @room.number_of_guests()
+      assert_equal(4, result)
+    end
 end
+
+# Extensions
+#
+#     What happens if there are more guests trying to be checked in than there is free space in the room?
+#     Karaoke venues usually have an entry fee - So the guests could have money so they can pay it.
