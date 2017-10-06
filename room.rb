@@ -24,4 +24,8 @@ attr_reader :name
     return @songs.length
   end
 
+  def add_song(song)
+    @songs << song
+  end
+
 end

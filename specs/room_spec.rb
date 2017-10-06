@@ -57,4 +57,11 @@ class TestRoom < MiniTest::Test
     assert_equal(2, result)
   end
 
+# Test 6
+  def test_add_song()
+    song_3 = Song.new("Fisherman's Blues", "The Waterboys")
+    @room.add_song(song_3)
+    result = @room.number_of_songs
+    assert_equal(3, result)
+  end
 end
