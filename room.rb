@@ -12,5 +12,9 @@ attr_reader :name
     return @guests.length
   end
 
+  def add_guest(guests)
+    return @guests << guests
+  end
+
 
 end

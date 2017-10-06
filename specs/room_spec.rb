@@ -37,8 +37,8 @@ class TestRoom < MiniTest::Test
   end
 
 #Test 3
-  def tesst_add_guess()
-    guest_3 = Guest.new("Derp")
+  def test_add_guest()
+    guest_3 = Guest.new("Harold Bishop")
     @room.add_guest(guest_3)
     result = @room.number_of_guests()
     assert_equal(3, result)
