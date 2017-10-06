@@ -4,6 +4,13 @@ require_relative("../guest.rb")
 require_relative("../song.rb")
 require_relative("../room.rb")
 
+# Your program should be test driven and should be able to:
+#
+#     Create rooms, songs and guests
+#     Check in guests to rooms/Check out guests from rooms
+#     Add songs to rooms
+
+
 class TestRoom < MiniTest::Test
 
   def setup
@@ -18,8 +25,23 @@ class TestRoom < MiniTest::Test
     @room = Room.new("Room 1", guests, songs)
   end
 
+# Test 1
   def test_room_has_name()
     assert_equal("Room 1", @room.name)
+  end
+
+# Test 2
+  def test_check_how_many_guest()
+    result = @room.number_of_guests()
+    assert_equal(2, result)
+  end
+
+#Test 3
+  def tesst_add_guess()
+    guest_3 = Guest.new("Derp")
+    @room.add_guest(guest_3)
+    result = @room.number_of_guests()
+    assert_equal(3, result)
   end
 
 end
