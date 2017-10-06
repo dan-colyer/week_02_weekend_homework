@@ -1,11 +1,14 @@
+require_relative("guest.rb")
+
 class Room
 
 attr_reader :name
 
-  def initialize(name, guests, songs)
+  def initialize(name, guests, songs, price)
     @name = name
     @guests = guests
     @songs = songs
+    @price = price
   end
 
   def number_of_guests()
@@ -24,6 +27,10 @@ attr_reader :name
 
   def isFull()
     return @guests.length == 4
+  end
+
+  def canAfford(guest)
+    return guest.cash >= @price
   end
 
   def remove_guest(guests)

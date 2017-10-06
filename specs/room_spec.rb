@@ -12,11 +12,11 @@ class TestRoom < MiniTest::Test
     @song_2 = Song.new("Big Eyed Fish", "Dave Matthews Band")
     songs = [@song_1, @song_2]
 
-    @guest_1 = Guest.new("Eglantine Price")
-    @guest_2 = Guest.new("Euphemia Doubtfire")
+    @guest_1 = Guest.new("Eglantine Price", 100)
+    @guest_2 = Guest.new("Euphemia Doubtfire", 100)
     guests = [@guest_1, @guest_2]
 
-    @room = Room.new("Room 1", guests, songs)
+    @room = Room.new("Room 1", guests, songs, 50)
   end
 
 # Test 1
@@ -32,7 +32,7 @@ class TestRoom < MiniTest::Test
 
 # Test 3
   def test_add_guest()
-    guest_3 = Guest.new("Harold Bishop")
+    guest_3 = Guest.new("Harold Bishop", 100)
     @room.add_guest(guest_3)
     result = @room.number_of_guests()
     assert_equal(3, result)
@@ -68,8 +68,8 @@ class TestRoom < MiniTest::Test
 
 # Test 8
   def test_room_full()
-    guest_3 = Guest.new("Harold Bishop")
-    guest_4 = Guest.new("Man Man")
+    guest_3 = Guest.new("Harold Bishop", 100)
+    guest_4 = Guest.new("Man Man", 100)
 
     @room.add_guest(guest_3)
     @room.add_guest(guest_4)
@@ -77,10 +77,10 @@ class TestRoom < MiniTest::Test
     assert_equal(true, @room.isFull())
   end
 
-  #test 9
+# Test 9
     def test_room_does_not_go_over()
-      guest_3 = Guest.new("Harold Bishop")
-      guest_4 = Guest.new("Man Man")
+      guest_3 = Guest.new("Harold Bishop", 100)
+      guest_4 = Guest.new("Man Man", 100)
 
       @room.add_guest(guest_3)
       @room.add_guest(guest_4)
@@ -90,13 +90,18 @@ class TestRoom < MiniTest::Test
       @room.add_guest(guest_4)
       @room.add_guest(guest_4)
       @room.add_guest(guest_4)
-      
+
       result = @room.number_of_guests()
       assert_equal(4, result)
     end
+
+# Test 10
+  def test_guest_has_enough_cash()
+    result = @room.canAfford(@guest_1)
+    assert_equal(true, result)
+  end
 end
 
 # Extensions
-#
-#     What happens if there are more guests trying to be checked in than there is free space in the room?
+
 #     Karaoke venues usually have an entry fee - So the guests could have money so they can pay it.
