@@ -64,4 +64,11 @@ class TestRoom < MiniTest::Test
     result = @room.number_of_songs
     assert_equal(3, result)
   end
+
+# Test 7
+  def test_remove_song()
+    @room.remove_song(@song_1)
+    result = @room.number_of_songs
+    assert_equal(1, result)
+  end
 end

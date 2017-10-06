@@ -28,4 +28,8 @@ attr_reader :name
     @songs << song
   end
 
+  def remove_song(song)
+    @songs.delete(song)
+  end
+
 end
