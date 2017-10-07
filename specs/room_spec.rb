@@ -116,6 +116,19 @@ class TestRoom < MiniTest::Test
     result = @room.number_of_guests()
     assert_equal(3, result)
   end
+
+# Test 13
+  def test_guest_match_favourite_song
+    guest_7 = Guest.new("Crazy Harry", 70, "Down by the River")
+    result = @room.isFavourite(guest_7)
+    assert_equal(true, result)
+  end
+
+  # def test_add_guest_favourite_song_shoutout
+  #   guest_7 = Guest.new("Crazy Harry", 70, "Down by the River")
+  #   result = @room.add_guest(guest_7)
+  #   assert_equal("YOUR SONG!", result)
+  # end
 end
 
 # Advanced extensions
