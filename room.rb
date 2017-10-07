@@ -44,9 +44,16 @@ attr_reader :name, :songs
     #   if (item.title == guest.favourite_song)
     #     return true
     #   end
+    #   return false
     # end
 
-    return true if @songs.find_all {|item| item.title == guest.favourite_song}
+    check = @songs.find_all {|item| item.title == guest.favourite_song}
+
+    if check.empty?
+      return false
+    else
+      return true
+    end
   end
 
 #   find = pets.find_all {|pet| pet[:breed] == "Dalmation"}
