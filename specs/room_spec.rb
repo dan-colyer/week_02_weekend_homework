@@ -136,6 +136,7 @@ class TestRoom < MiniTest::Test
     guest_7 = Guest.new("Crazy Harry", 70, "Down by the River")
     result = @room.add_guest(guest_7)
     assert_equal("YOUR SONG!", result)
+    assert_equal(3, @room.number_of_guests())
   end
 
 # Test 16
@@ -145,10 +146,3 @@ class TestRoom < MiniTest::Test
     assert_equal(3, result.length)
   end
 end
-
-# Advanced extensions
-#
-#     Guests could have a favourite song, and if their favourite song is on the room's playlist, they can cheer loudly! (return a string like "Whoo!")
-#     Rooms can keep track of the entry fees/spending of the guests - maybe add a bar tab/bar class?
-#     Add anything extra you think would be good to have at a karaoke venue!
-#     Write a Runner class, so that your Karaoke app can be run in Terminal.

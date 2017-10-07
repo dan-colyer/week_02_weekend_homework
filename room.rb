@@ -15,16 +15,6 @@ attr_reader :name, :songs
     return @guests.length
   end
 
-  # def add_guest(guests)
-  #   return @guests << guests
-  # end
-
-  # def add_guest(guests)
-  #   if(!isFull() && canAfford(guests))
-  #     @guests << guests
-  #   end
-  # end
-
   def add_guest(guests)
     if(!isFull() && canAfford(guests) && isFavourite(guests))
       @guests << guests
@@ -59,11 +49,6 @@ attr_reader :name, :songs
       return true
     end
   end
-
-#   find = pets.find_all {|pet| pet[:breed] == "Dalmation"}
-# puts false if find == []
-
-# puts pets.find_all {|pet| pet[:breed] == "Husky"}
 
   def remove_guest(guests)
     return @guests.delete(guests)
