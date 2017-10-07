@@ -26,7 +26,11 @@ attr_reader :name, :songs
   # end
 
   def add_guest(guests)
-    if(!isFull() && canAfford(guests))
+    if(!isFull() && canAfford(guests) && isFavourite(guests))
+      @guests << guests
+      return "YOUR SONG!"
+    elsif
+      (!isFull() && canAfford(guests))
       @guests << guests
     end
   end

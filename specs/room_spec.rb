@@ -131,13 +131,12 @@ class TestRoom < MiniTest::Test
     assert_equal(false, result)
   end
 
-
-
-  # def test_add_guest_favourite_song_shoutout
-  #   guest_7 = Guest.new("Crazy Harry", 70, "Down by the River")
-  #   result = @room.add_guest(guest_7)
-  #   assert_equal("YOUR SONG!", result)
-  # end
+# Test 15
+  def test_add_guest_favourite_song_shoutout
+    guest_7 = Guest.new("Crazy Harry", 70, "Down by the River")
+    result = @room.add_guest(guest_7)
+    assert_equal("YOUR SONG!", result)
+  end
 end
 
 # Advanced extensions
